@@ -17,16 +17,40 @@
 
   <build>
     <pluginManagement>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>1.5</source>
-          <target>1.5</target>
-        </configuration>
-      </plugin>
-    </plugins>
+      <plugins>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <source>1.5</source>
+            <target>1.5</target>
+          </configuration>
+        </plugin>
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-clean-plugin</artifactId>
+            <version>3.1.0</version>
+            <configuration>
+              <filesets>
+                <fileset>
+                  <directory>.</directory>
+                  <includes>
+                    <include>**/*.tmp</include>
+                    <include>velocity.log</include>
+                  </includes>
+                  <excludes>
+                    <exclude>**/important.log</exclude>
+                    <exclude>**/another-important.log</exclude>
+                  </excludes>
+                  <followSymlinks>false</followSymlinks>
+                </fileset>
+              </filesets>
+            </configuration>
+          </plugin>
+  
+      </plugins>
     </pluginManagement>
   </build>
 
