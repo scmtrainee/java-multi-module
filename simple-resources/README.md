@@ -11,3 +11,13 @@ task copyExtraResources(type: Copy) {
 	into 'target/extra-resources'
 }
 ```
+
+```
+
+task attachArtifact(type: Zip){
+	archiveName = "project-extra-rsrcs.zip"
+    destinationDir = file("target/")
+
+    from "target/extra-resources"
+}
+```
