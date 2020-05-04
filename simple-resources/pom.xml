@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.sonatype.mavenbook.multi</groupId>
+    <artifactId>simple-parent</artifactId>
+    <version>0.8-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>simple-resources</artifactId>
+  <packaging>pom</packaging>
+
+
+  <properties>
+    <your.name>maven</your.name>
+  </properties>
+
+
+  <name>Multi Chapter Simple resource Application Project</name>
+  
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <id>copy-extra-resources</id>
+            <!-- here the phase you need -->
+            <phase>validate</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <!-- <outputDirectory>${basedir}/target/extra-resources</outputDirectory> -->
+              <outputDirectory>target/extra-resources</outputDirectory>
+              <resources>          
+                <resource>
+                  <directory>src/non-packaged-resources</directory>
+                  <filtering>true</filtering>
+                  <includes>
+                    <includes>**/*.html</includes>
+                    <includes>**/*.gif</includes>
+                  </includes>
+                  <excludes>
+                    <exclude>**/*.txt</exclude>
+                  </excludes>
+                </resource>
+              </resources>              
+            </configuration>            
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+
+</project>
