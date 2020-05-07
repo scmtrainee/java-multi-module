@@ -30,7 +30,7 @@
         <version>3.1.0</version>
         <executions>
           <execution>
-            <id>copy-extra-resources</id>
+            <id>copy-html-resources</id>
             <!-- here the phase you need -->
             <phase>validate</phase>
             <goals>
@@ -38,7 +38,7 @@
             </goals>
             <configuration>
               <!-- <outputDirectory>${basedir}/target/extra-resources</outputDirectory> -->
-              <outputDirectory>target/extra-resources</outputDirectory>
+              <outputDirectory>target/extra-html-resources</outputDirectory>
               <resources>          
                 <resource>
                   <directory>src/non-packaged-resources</directory>
@@ -49,6 +49,30 @@
                   </includes>
                   <excludes>
                     <exclude>**/*.txt</exclude>
+                  </excludes>
+                </resource>
+              </resources>              
+            </configuration>            
+          </execution>
+          <execution>
+            <id>copy-text-resources</id>
+            <!-- here the phase you need -->
+            <phase>validate</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <!-- <outputDirectory>${basedir}/target/extra-resources</outputDirectory> -->
+              <outputDirectory>target/extra-txt-resources</outputDirectory>
+              <resources>          
+                <resource>
+                  <directory>src/non-packaged-resources</directory>
+                  <filtering>true</filtering>
+                  <includes>
+                    <includes>**/*.txt</includes>
+                  </includes>
+                  <excludes>
+                    <exclude>**/*.html</exclude>
                   </excludes>
                 </resource>
               </resources>              
