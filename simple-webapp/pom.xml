@@ -49,6 +49,45 @@
         <version>6.1.9</version>
       </plugin>
 
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.3</version>
+        <executions>
+          <execution>
+            <id>create-exploded-war</id>
+            <goals>
+              <goal>exploded</goal>  
+            </goals>
+            <phase>validate</phase>
+            <configuration>
+              <webappDirectory>target/deploy/directory</webappDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>war-two</id>
+            <goals>
+              <goal>war</goal>  
+            </goals>
+            <phase>package</phase>
+            <configuration>
+              <classifier>two</classifier>
+              <webResources>
+                <resource>
+                  <filtering>true</filtering>
+                  <directory>src/main/webapp</directory>
+                  <includes>
+                    <include>**</include>
+                  </includes>
+                </resource>
+                <!-- <resource>
+                  <directory>your-context-two-directory</directory>
+                </resource> -->
+              </webResources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 
