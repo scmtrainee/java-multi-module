@@ -6,3 +6,10 @@ task war_two(type: War){
 	}
 }
 ```
+
+```
+task createExplodedWar(type: Copy) {
+    into "target/deploy/directory"
+    with war
+} 
+```
