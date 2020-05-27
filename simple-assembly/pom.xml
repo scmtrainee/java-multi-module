@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.sonatype.mavenbook.multi</groupId>
+    <artifactId>simple-parent</artifactId>
+    <version>0.8-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>simple-assembly</artifactId>
+  <packaging>pom</packaging>
+
+
+  <name>Multi Chapter Simple assembly Application Project</name>
+
+  <properties>
+    <artifact.finalName>my-assembly</artifact.finalName>
+  </properties>
+  
+
+ <build>
+  <plugins>
+
+    <plugin>
+      <artifactId>maven-assembly-plugin</artifactId>
+      <version>2.5.2</version>
+      <executions>
+        <execution>
+          <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+        </execution>
+      </executions>
+      <configuration>
+        <tarLongFileMode>gnu</tarLongFileMode>
+        <descriptors>
+          <descriptor>${pom.basedir}/src/main/assembly/assembly.xml</descriptor>
+        </descriptors>
+        <appendAssemblyId>false</appendAssemblyId>
+        <finalName>${artifact.finalName}</finalName>
+      </configuration>
+    </plugin>
+
+
+  </plugins>
+</build>
+
+</project>

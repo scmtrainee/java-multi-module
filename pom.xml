@@ -15,6 +15,7 @@
     <module>simple-webapp</module>
     <module>simple-resources</module>
     <module>simple-dependencies</module>
+    <module>simple-assembly</module>
   </modules>
 
   <build>

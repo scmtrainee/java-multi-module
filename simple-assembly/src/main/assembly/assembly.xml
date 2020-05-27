@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assembly>
+	<id>batch</id>
+	
+	<formats>
+		<format>tar</format>
+	</formats>
+
+	<includeBaseDirectory>true</includeBaseDirectory>
+	
+	<files>
+		<file>
+			<source>src/main/scripts/fileReload.ksh</source>
+			<outputDirectory>reload-scripts</outputDirectory>
+		</file>
+		<file>
+			<source>src/main/scripts/fileUpload.ksh</source>
+			<outputDirectory>upload-scripts</outputDirectory>
+		</file>
+	</files>
+
+	<fileSets>
+		<fileSet>
+			<directory>src/main/scripts</directory>
+			<outputDirectory>utilities/scripts</outputDirectory>
+			<excludes>
+				<exclude>fileReload.ksh</exclude>
+				<exclude>fileUpload.ksh</exclude>
+			</excludes>
+			<includes>
+				<include>**/*.ksh</include>
+			</includes>
+		</fileSet>
+		<fileSet>
+			<directory>${pom.basedir}/../simple-weather/target/classes/</directory>
+			<outputDirectory>weather-Batch/localconfig/</outputDirectory>
+			<excludes>
+				<exclude>META-INF/**</exclude>
+				<exclude>pom.xml</exclude>
+			</excludes>
+		</fileSet>
+	</fileSets>
+
+</assembly>
