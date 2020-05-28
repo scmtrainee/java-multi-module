@@ -13,8 +13,8 @@
   <artifactId>simple-resources</artifactId>
   <packaging>pom</packaging>
 
-
   <properties>
+     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <your.name>maven</your.name>
   </properties>
 
@@ -95,7 +95,7 @@
             <configuration>
               <target>
                 <zip destfile="target/project-extra-rsrcs.zip"
-                     basedir="target/extra-resources"
+                     basedir="src/non-packaged-resources"
                      includes="*.*"
                   />
                 <!-- <attachartifact file="my-project-src.zip" classifier="src" type="zip"/> -->
