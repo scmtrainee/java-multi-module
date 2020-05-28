@@ -1,4 +1,13 @@
 README.md
+```
+ext {
+	database_driver = "com.mysql.jdbc.Driver"
+	database_url = "jdbc:mysql://localhost:3306/database?autoReconnect=true"
+	database_username = "myusername"
+	database_password = "mypassword"
+}
+
+```
 
 ```
 test{

@@ -14,6 +14,14 @@
 
   <name>Multi Chapter Simple Weather API</name>
 
+  <properties>
+    <database.driver>com.mysql.jdbc.Driver</database.driver>
+    <database.url>jdbc:mysql://localhost:3306/database?autoReconnect=true</database.url>
+    <database.username>myusername</database.username>
+    <database.password>mypassword</database.password>
+  </properties>
+
+
   <build>
       <plugins>
 
